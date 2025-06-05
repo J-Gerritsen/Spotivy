@@ -28,7 +28,7 @@ namespace Spotivy.Classes
         */
         public override string ToString()
         {
-            return base.ToString();
+            throw new NotImplementedException();
         }
     }
 }

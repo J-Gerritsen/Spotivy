@@ -24,7 +24,7 @@ namespace Spotivy.Classes
          */
         public List<iPlayable> ShowPlayables()
         {
-            return new List<iPlayable>();
+            throw new NotImplementedException();
         }
 
         /**
@@ -32,7 +32,7 @@ namespace Spotivy.Classes
         */
         public override string ToString()
         {
-            return base.ToString();
+            throw new NotImplementedException();
         }
     }
 }

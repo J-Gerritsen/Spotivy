@@ -23,14 +23,14 @@ namespace Spotivy.Classes
          */
         public List<Artist> ShowArtist()
         {
-            return new List<Artist>();
+            throw new NotImplementedException();
         }
         /**
          * this is to change how strings are printed to improve clarity
          */
         public override string ToString()
         {
-            return base.ToString();
+            throw new NotImplementedException();
         }
 
     }

@@ -6,24 +6,25 @@ using System.Threading.Tasks;
 
 namespace Spotivy.Classes
 {
-    class Playlist
+    class Playlist: SongCollection
     {
         public Person Owner;
+
 
         /**
          * this is to create a Playlist
          */
-        public Playlist(Person owner)
+        public Playlist(string title) : base(title)
         {
-            Owner = owner;
         }
+
 
         /**
          * ??
          */
         public void Add(iPlayable iPlayable)
         {
-
+            throw new NotImplementedException();
         }
 
         /**
@@ -31,7 +32,7 @@ namespace Spotivy.Classes
          */
         public void Remove(iPlayable iPlayable)
         {
-
+            throw new NotImplementedException();
         }
 
         /**
@@ -39,7 +40,7 @@ namespace Spotivy.Classes
         */
         public override string ToString()
         {
-            return base.ToString();
+            throw new NotImplementedException();
         }
     }
 }

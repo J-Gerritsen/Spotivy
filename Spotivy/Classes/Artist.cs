@@ -27,7 +27,7 @@ namespace Spotivy.Classes
          */
         public void AddSong(Song song)
         {
-
+            throw new NotImplementedException();
         }
 
         /**
@@ -35,14 +35,14 @@ namespace Spotivy.Classes
          */
         public void AddAlbum(Album album)
         {
-
+            throw new NotImplementedException();
         }
         /**
         * this is to change how strings are printed to improve clarity
         */
         public override string ToString()
         {
-            return base.ToString();
+            throw new NotImplementedException();
         }
     }
 }
