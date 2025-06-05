@@ -10,13 +10,13 @@ namespace Spotivy.Classes
     {
         public string Title;
         public List<Artist> Artists = new List<Artist>();
-        public Genre SongGenre;
+        public Genres SongGenre;
         private int Length;
 
         /**
          * this is to create a song 
          */
-        public Song(string title, List<Artist> artists, Genre songGenre)
+        public Song(string title, List<Artist> artists, Genres songGenre)
         {
             Title = title;
             Artists = artists;

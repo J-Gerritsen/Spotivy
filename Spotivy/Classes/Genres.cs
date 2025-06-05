@@ -138,7 +138,6 @@ namespace Spotivy.Classes
 
         // Indie & Alternative
         IndiePop,
-        IndieRock,
         LoFi,
         DreamPop,
         Shoegaze,
