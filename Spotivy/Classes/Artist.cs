@@ -38,8 +38,8 @@ namespace Spotivy.Classes
 
         }
         /**
-         * this is to change how strings are printed to inprove clarity
-         */
+        * this is to change how strings are printed to improve clarity
+        */
         public override string ToString()
         {
             return base.ToString();

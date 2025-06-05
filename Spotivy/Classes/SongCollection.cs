@@ -6,21 +6,25 @@ using System.Threading.Tasks;
 
 namespace Spotivy.Classes
 {
-    class Song
+    class SongCollection
     {
         public string Title;
-        public List<Artist> Artists = new List<Artist>();
-        public Genre SongGenre;
-        private int Length;
+        private List<iPlayable> Playables = new List<iPlayable>();
 
         /**
-         * this is to create a song 
+         * this is to create a SongCollection
          */
-        public Song(string title, List<Artist> artists, Genre songGenre)
+        public SongCollection(string title)
         {
-            Title = title;
-            Artists = artists;
-            SongGenre = songGenre;
+            this.Title = title;
+        }
+
+        /**
+         * this is to show the playables
+         */
+        public List<iPlayable> ShowPlayables()
+        {
+            return new List<iPlayable>();
         }
 
         /**
