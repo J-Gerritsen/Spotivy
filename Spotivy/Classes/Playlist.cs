@@ -1,0 +1,47 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Spotivy.Interfaces;
+
+namespace Spotivy.Classes
+{
+    class Playlist: SongCollection
+    {
+        public Person Owner;
+
+
+        /**
+         * this is to create a Playlist
+         */
+        public Playlist(string title) : base(title)
+        {
+        }
+
+
+        /**
+         * ??
+         */
+        public void Add(iPlayable iPlayable)
+        {
+            throw new NotImplementedException();
+        }
+
+        /**
+         * ??
+         */
+        public void Remove(iPlayable iPlayable)
+        {
+            throw new NotImplementedException();
+        }
+
+        /**
+        * this is to change how strings are printed to improve clarity
+        */
+        public override string ToString()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
