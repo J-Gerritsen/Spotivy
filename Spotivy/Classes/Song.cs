@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Spotivy.Interfaces;
 
 namespace Spotivy.Classes
 {
-    class Song
+    class Song : iPlayable
     {
         public string Title;
         public List<Artist> Artists = new List<Artist>();
@@ -21,6 +22,44 @@ namespace Spotivy.Classes
             Title = title;
             Artists = artists;
             SongGenre = songGenre;
+        }
+
+        int iPlayable.Length => throw new NotImplementedException();
+
+        public void Next()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Pause()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Play()
+        {
+            Boolean Playing = true;
+            int i = 0;
+            Console.WriteLine("playing " + Title);
+            
+            while (Playing)
+            {
+                Playing = true;
+                Thread.Sleep(1000); //wait for 1 second
+                i++;
+
+                if (i > Length)
+                {
+                    Console.WriteLine("Song " + Title + " finished");
+                    Playing = false;
+                    i = 0;
+                }
+            }
+        }
+
+        public void Stop()
+        {
+            throw new NotImplementedException();
         }
 
         /**
