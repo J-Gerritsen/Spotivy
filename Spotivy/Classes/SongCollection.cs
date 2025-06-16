@@ -10,7 +10,7 @@ namespace Spotivy.Classes
     class SongCollection
     {
         public string Title;
-        private List<iPlayable> Playables = new List<iPlayable>();
+        protected List<iPlayable> Playables = new List<iPlayable>();
 
         /**
          * this is to create a SongCollection
