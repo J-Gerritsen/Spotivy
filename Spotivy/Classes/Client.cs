@@ -107,6 +107,9 @@ namespace Spotivy.Classes
             throw new NotImplementedException();
         }
 
+        /**
+         * This is to pause something
+         */
         public void Pause()
         {
             throw new NotImplementedException();

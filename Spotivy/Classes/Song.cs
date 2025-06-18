@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spotivy.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Spotivy.Classes
 {
-    class Song
+    class Song : iPlayable
     {
         public string Title;
         public List<Artist> Artists = new List<Artist>();
@@ -21,6 +22,28 @@ namespace Spotivy.Classes
             Title = title;
             Artists = artists;
             SongGenre = songGenre;
+        }
+
+        int iPlayable.Length => throw new NotImplementedException();
+
+        public void Next()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Pause()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Play()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Stop()
+        {
+            throw new NotImplementedException();
         }
 
         /**
