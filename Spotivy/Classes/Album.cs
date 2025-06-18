@@ -24,7 +24,7 @@ namespace Spotivy.Classes
          */
         public List<Artist> ShowArtists()
         {
-            return Artists;
+            throw new NotImplementedException();
         }
         /**
          * this is to change how strings are printed to improve clarity
