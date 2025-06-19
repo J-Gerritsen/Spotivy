@@ -9,7 +9,7 @@ namespace Spotivy.Classes
 {
     class Album : SongCollection
     {
-        private List<Artist> Artists = new();
+        private List<Artist> Artists = [];
 
         /**
          * this is to create a album
@@ -24,7 +24,7 @@ namespace Spotivy.Classes
          */
         public List<Artist> ShowArtists()
         {
-            throw new NotImplementedException();
+            return Artists;
         }
         /**
          * this is to change how strings are printed to improve clarity
