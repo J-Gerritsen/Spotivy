@@ -45,7 +45,6 @@ namespace Spotivy.Classes
             
             while (Playing)
             {
-                Playing = true;
                 Console.WriteLine($"currently playing: {Title}");
                 Thread.Sleep(1000); //wait for 1 second
                 i++;
