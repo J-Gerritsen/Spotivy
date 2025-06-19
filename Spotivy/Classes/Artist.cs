@@ -42,7 +42,7 @@ namespace Spotivy.Classes
         */
         public override string ToString()
         {
-            throw new NotImplementedException();
+            return Name;
         }
     }
 }

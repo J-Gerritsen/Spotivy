@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spotivy.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Spotivy.Classes
 {
-    class Album
+    class Album : SongCollection
     {
-        private List<Artist> Artists = new List<Artist>();
+        private List<Artist> Artists = [];
 
         /**
          * this is to create a album
          */
-        public Album(List<Artist> artists)
+        public Album(List<Artist> artists, List<Song> songs, string title) : base(title)
         {
             Artists = artists;
         }
@@ -21,9 +22,9 @@ namespace Spotivy.Classes
         /**
          * this is to show the artists of the album
          */
-        public List<Artist> ShowArtist()
+        public List<Artist> ShowArtists()
         {
-            throw new NotImplementedException();
+            return Artists;
         }
         /**
          * this is to change how strings are printed to improve clarity
