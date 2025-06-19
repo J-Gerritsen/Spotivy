@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Spotivy.Interfaces;
 
 namespace Spotivy.Classes
 {
@@ -38,7 +39,23 @@ namespace Spotivy.Classes
 
         public void Play()
         {
-            throw new NotImplementedException();
+            Boolean Playing = true;
+            int i = 0;
+            Console.WriteLine($"playing {Title}");
+            
+            while (Playing)
+            {
+                Console.WriteLine($"currently playing: {Title}");
+                Thread.Sleep(1000); //wait for 1 second
+                i++;
+
+                if (i > Length)
+                {
+                    Console.WriteLine($"Song {Title} finished");
+                    Playing = false;
+                    i = 0;
+                }
+            }
         }
 
         public void Stop()
