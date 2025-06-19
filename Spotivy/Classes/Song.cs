@@ -41,18 +41,18 @@ namespace Spotivy.Classes
         {
             Boolean Playing = true;
             int i = 0;
-            Console.WriteLine("playing " + Title);
+            Console.WriteLine($"playing {Title}");
             
             while (Playing)
             {
                 Playing = true;
-                Console.WriteLine("currently playing: " + Title);
+                Console.WriteLine($"currently playing: {Title}");
                 Thread.Sleep(1000); //wait for 1 second
                 i++;
 
                 if (i > Length)
                 {
-                    Console.WriteLine("Song " + Title + " finished");
+                    Console.WriteLine($"Song {Title} finished");
                     Playing = false;
                     i = 0;
                 }
