@@ -15,9 +15,13 @@ namespace Spotivy.Classes
         public Genres SongGenre;
         private int Length;
 
+        public int length
+        {
+            get { return Length; }
+        }
 
-        // make this in the client because only one thing can be played at a time and not every song needs to check if they are playing or not
-        private Boolean Playing = false;
+
+       
          
         /**
          * this is to create a song 
@@ -38,29 +42,12 @@ namespace Spotivy.Classes
 
         public void Pause()
         {
-            Playing = false;
             Console.WriteLine($"song {Title} is gepauzeerd");
         }
 
         public void Play()
         {
-            Playing = true;
-            int i = 0;
-            Console.WriteLine($"playing {Title}");
-            
-            while (Playing)
-            {
-                Console.WriteLine($"currently playing: {Title}");
-                Thread.Sleep(1000); //wait for 1 second
-                i++;
-
-                if (i > Length)
-                {
-                    Console.WriteLine($"Song {Title} finished");
-                    Playing = false;
-                    i = 0;
-                }
-            }
+            Console.WriteLine(Title);
         }
 
         public void Stop()

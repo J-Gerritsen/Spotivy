@@ -17,7 +17,7 @@ namespace Spotivy.Classes
         private SuperUser ActiveUser { get; set; }
         private List<Album> AllAlbums { get; set; }
         private List<Song> AllSongs { get; set; }
-        private List<Person> AllUsers { get; set; }
+        private List<Person> AllUsers { get; set; } 
 
         /**
          * This is to create a Client
@@ -102,9 +102,26 @@ namespace Spotivy.Classes
         /**
          * This is to play something
          */
-        public void Play()
+        public void Play(Song song)
         {
-            throw new NotImplementedException();
+            Playing = true;
+            int i = 0;
+            Console.WriteLine($"playing {song.Play}");
+
+            while (Playing)
+            {
+                Console.WriteLine($"currently playing: {song.Play}");
+                Thread.Sleep(1000); //wait for 1 second
+                i++;
+
+                if (i > song.length)
+                {
+                    Console.WriteLine($"Song {song.Play} finished");
+                    Playing = false;
+                    i = 0;
+                }
+            }
+
         }
 
         /**
@@ -112,7 +129,7 @@ namespace Spotivy.Classes
          */
         public void Pause()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Stop()
