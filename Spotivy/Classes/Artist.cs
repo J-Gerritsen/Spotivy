@@ -35,7 +35,7 @@ namespace Spotivy.Classes
          */
         public void AddAlbum(Album album)
         {
-            throw new NotImplementedException();
+            Albums.Add(album);
         }
         /**
         * this is to change how strings are printed to improve clarity
