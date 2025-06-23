@@ -27,7 +27,7 @@ namespace Spotivy.Classes
          */
         public void AddSong(Song song)
         {
-            throw new NotImplementedException();
+            Songs.Add(song);
         }
 
         /**
