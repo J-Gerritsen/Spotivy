@@ -22,6 +22,8 @@ namespace Spotivy
             List<Artist> albumArtists = [artist1];
             
             Album album1 = new(albumArtists, albumSongs, "album1");
+
+            artist1.AddSong(song1);
         }
     }
 }
