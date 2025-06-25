@@ -16,9 +16,9 @@ namespace Spotivy.Classes
         /**
         * This is to add a friend
         */
-        private void AddFriend(Person person)
+        public void AddFriend(Person person)
         {
-            throw new NotImplementedException();
+            Friends.Add(person);
         }
 
         /**

@@ -22,9 +22,11 @@ namespace Spotivy.Classes
         /**
          * This is to create a Client
          */
-        public Client(List<Person> persons, List<Album> albums, List<Song> songs)
+        public Client(List<Person> allUsers, List<Album> allAlbums, List<Song> allSongs)
         {
-            throw new NotImplementedException();
+            AllUsers = allUsers;
+            AllAlbums = allAlbums;
+            AllUsers = allUsers;
         }
 
         /**
@@ -172,7 +174,10 @@ namespace Spotivy.Classes
 
         public void ShowFriends()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < AllUsers.Count; i++)
+            {
+                Console.WriteLine($"{i}: {AllUsers[i].Name}");
+            }
         }
 
         public void SelectFriend(int index)
