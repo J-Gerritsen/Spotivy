@@ -159,8 +159,17 @@ namespace Spotivy.Classes
 
         public void SetRepeat(bool repeat, Song song)
         {
-            Repeat = true;
-            Console.WriteLine($"song {song.Play} is on repeat");
+            if (!Repeat)
+            {
+                Repeat = true;
+                Console.WriteLine($"song {song.Play} is on repeat");
+            }
+            else
+            {
+                Repeat = false;
+                Console.WriteLine($"song {song.Play} is not on repeat");
+            }
+            
         }
 
         public void CreatePlaylist(string name)
