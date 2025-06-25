@@ -42,7 +42,7 @@ namespace Spotivy.Classes
 
         public void Pause()
         {
-            Console.WriteLine($"song {Title} is gepauzeerd");
+            Console.WriteLine(Title);
         }
 
         public void Play()

@@ -127,9 +127,10 @@ namespace Spotivy.Classes
         /**
          * This is to pause something
          */
-        public void Pause()
+        public void Pause(Song song)
         {
-            
+            Playing = false;
+            Console.WriteLine($"song {song.Pause} is gepauzeerd");
         }
 
         public void Stop()
