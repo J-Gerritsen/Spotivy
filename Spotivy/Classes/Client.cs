@@ -116,9 +116,18 @@ namespace Spotivy.Classes
 
                 if (i > song.length)
                 {
-                    Console.WriteLine($"Song {song.Play} finished");
-                    Playing = false;
-                    i = 0;
+                    if (!Repeat)
+                    {
+                        Console.WriteLine($"Song {song.Play} finished");
+                        Playing = false;
+                        i = 0;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Song {song.Play} repeat");
+                        Playing = true;
+                        i = 0;
+                    }
                 }
             }
 
@@ -148,9 +157,19 @@ namespace Spotivy.Classes
             throw new NotImplementedException();
         }
 
-        public void SetRepeat(bool repeat)
+        public void SetRepeat(bool repeat, Song song)
         {
-            throw new NotImplementedException();
+            if (!Repeat)
+            {
+                Repeat = true;
+                Console.WriteLine($"song {song.Play} is on repeat");
+            }
+            else
+            {
+                Repeat = false;
+                Console.WriteLine($"song {song.Play} is not on repeat");
+            }
+            
         }
 
         public void CreatePlaylist(string name)
