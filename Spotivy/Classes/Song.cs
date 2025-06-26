@@ -13,7 +13,7 @@ namespace Spotivy.Classes
         public string Title;
         public List<Artist> Artists = new List<Artist>();
         public Genres SongGenre;
-        private int length = 300;
+        private int length;
 
         public int Length
         {
