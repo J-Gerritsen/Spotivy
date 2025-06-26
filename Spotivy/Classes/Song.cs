@@ -13,16 +13,14 @@ namespace Spotivy.Classes
         public string Title;
         public List<Artist> Artists = new List<Artist>();
         public Genres SongGenre;
-        private int Length;
+        private int length;
 
-        public int length
+        public int Length
         {
-            get { return Length; }
+            get { return length; }
         }
 
 
-       
-         
         /**
          * this is to create a song 
          */
@@ -32,8 +30,6 @@ namespace Spotivy.Classes
             Artists = artists;
             SongGenre = songGenre;
         }
-
-        int iPlayable.Length => throw new NotImplementedException();
 
         public void Next()
         {

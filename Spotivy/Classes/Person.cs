@@ -8,16 +8,16 @@ namespace Spotivy.Classes
 {
     class Person
     {
-        public string Naam { get; set; }
-        private List<Person> Friends = new();
+        public string Name { get; set; }
+        protected List<Person> Friends = new();
         private List<Playlist> Playlists = new();
         
         /**
          * This is to create a Person
          */
-        public Person(string naam, List<Person> friends, List<Playlist> playlists)
+        public Person(string name, List<Person> friends, List<Playlist> playlists)
         {
-            Naam = naam;
+            Name = name;
             Friends = friends;
             Playlists = playlists;
         }
@@ -27,7 +27,7 @@ namespace Spotivy.Classes
          */
         public List<Person> ShowFriends()
         {
-            throw new NotImplementedException();
+            return Friends;
         }
 
         /**

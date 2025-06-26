@@ -23,9 +23,11 @@ namespace Spotivy.Classes
         /**
          * This is to create a Client
          */
-        public Client(List<Person> persons, List<Album> albums, List<Song> songs)
+        public Client(List<Person> allUsers, List<Album> allAlbums, List<Song> allSongs)
         {
-            throw new NotImplementedException();
+            AllUsers = allUsers;
+            AllAlbums = allAlbums;
+            AllSongs = allSongs;
         }
 
         /**
@@ -33,7 +35,10 @@ namespace Spotivy.Classes
          */
         public void SetActiveUser(Person person)
         {
-            throw new NotImplementedException();
+            if (person is SuperUser)
+            {
+                ActiveUser = (SuperUser)person;
+            }
         }
 
         /**
@@ -73,7 +78,10 @@ namespace Spotivy.Classes
          */
         public void ShowAllUsers()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < AllUsers.Count; i++)
+            {
+                Console.WriteLine($"{i}: {AllUsers[i].Name}");
+            }
         }
 
         /**
@@ -107,31 +115,31 @@ namespace Spotivy.Classes
         {
             Playing = true;
             int i = 0;
-            Console.WriteLine($"playing {song.Play}");
+            Console.WriteLine($"playing {song.Title}");
 
             while (Playing && !stop)
             {
-                Console.WriteLine($"currently playing: {song.Play}");
+                Console.WriteLine($"currently playing: {song.Title}");
                 await Task.Delay(1000);//wait for 1 second without stopping the app
                 i++;
-                if (i > song.length)
+                if (i > song.Length)
                 {
                     if (!Repeat)
                     {
-                        Console.WriteLine($"Song {song.Play} finished");
+                        Console.WriteLine($"Song {song.Title} finished");
                         Playing = false;
                         i = 0;
                     }
                     else
                     {
-                        Console.WriteLine($"Song {song.Play} repeat");
+                        Console.WriteLine($"Song {song.Title} repeat");
                         i = 0;
                     }
                 }
             }
             if(stop)
             {
-                Console.WriteLine($"Song {song.Play} stopped");
+                Console.WriteLine($"Song {song.Title} stopped");
                 Playing = false;
                 stop = false;
                 i = 0;
@@ -218,7 +226,12 @@ namespace Spotivy.Classes
 
         public void ShowFriends()
         {
-            throw new NotImplementedException();
+            List<Person> friends = ActiveUser.ShowFriends();
+
+            for (int i = 0; i < friends.Count; i++)
+            {
+                Console.WriteLine($"{i}: {friends[i].Name}");
+            }
         }
 
         public void SelectFriend(int index)
@@ -228,7 +241,14 @@ namespace Spotivy.Classes
 
         public void AddFriend(int index)
         {
-            throw new NotImplementedException();
+            if (index >= 0 && index < AllUsers.Count)
+            {
+                Person friend = AllUsers[index];
+
+                ActiveUser.AddFriend(friend);
+
+                Console.WriteLine($"{friend.Name} is your friend.");
+            }
         }
 
         public void RemoveFriend(int index)
