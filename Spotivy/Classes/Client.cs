@@ -14,10 +14,11 @@ namespace Spotivy.Classes
         public bool Playing { get; set; }
         public bool Shuffle { get; set; }
         public bool Repeat { get; set; }
+        public bool stop { get; set; }
         private SuperUser ActiveUser { get; set; }
         private List<Album> AllAlbums { get; set; }
         private List<Song> AllSongs { get; set; }
-        private List<Person> AllUsers { get; set; }
+        private List<Person> AllUsers { get; set; } 
 
         /**
          * This is to create a Client
@@ -110,22 +111,57 @@ namespace Spotivy.Classes
         /**
          * This is to play something
          */
-        public void Play()
+        public async Task Play(Song song) // make play a Task so Play can be delayed witout delaying/stopping the app it self
         {
-            throw new NotImplementedException();
+            Playing = true;
+            int i = 0;
+            Console.WriteLine($"playing {song.Play}");
+
+            while (Playing && !stop)
+            {
+                Console.WriteLine($"currently playing: {song.Play}");
+                await Task.Delay(1000);//wait for 1 second without stopping the app
+                i++;
+                if (i > song.length)
+                {
+                    if (!Repeat)
+                    {
+                        Console.WriteLine($"Song {song.Play} finished");
+                        Playing = false;
+                        i = 0;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Song {song.Play} repeat");
+                        i = 0;
+                    }
+                }
+            }
+            if(stop)
+            {
+                Console.WriteLine($"Song {song.Play} stopped");
+                Playing = false;
+                stop = false;
+                i = 0;
+            }
+      
         }
 
         /**
          * This is to pause something
          */
-        public void Pause()
+        public void Pause(Song song)
         {
-            throw new NotImplementedException();
+            Playing = false;
+            Console.WriteLine($"song {song.Pause} is gepauzeerd");
         }
 
         public void Stop()
         {
-            throw new NotImplementedException();
+            if(Playing)
+            {
+                stop = true;
+            }
         }
 
         public void NextSong()
@@ -138,9 +174,19 @@ namespace Spotivy.Classes
             throw new NotImplementedException();
         }
 
-        public void SetRepeat(bool repeat)
+        public void SetRepeat(bool repeat, Song song)
         {
-            throw new NotImplementedException();
+            if (!Repeat)
+            {
+                Repeat = true;
+                Console.WriteLine($"song {song.Play} is on repeat");
+            }
+            else
+            {
+                Repeat = false;
+                Console.WriteLine($"song {song.Play} is not on repeat");
+            }
+            
         }
 
         public void CreatePlaylist(string name)

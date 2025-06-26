@@ -15,6 +15,12 @@ namespace Spotivy.Classes
         public Genres SongGenre;
         private int Length;
 
+        public int length
+        {
+            get { return Length; }
+        }
+
+
         /**
          * this is to create a song 
          */
@@ -34,28 +40,12 @@ namespace Spotivy.Classes
 
         public void Pause()
         {
-            throw new NotImplementedException();
+            Console.WriteLine(Title);
         }
 
         public void Play()
         {
-            Boolean Playing = true;
-            int i = 0;
-            Console.WriteLine($"playing {Title}");
-            
-            while (Playing)
-            {
-                Console.WriteLine($"currently playing: {Title}");
-                Thread.Sleep(1000); //wait for 1 second
-                i++;
-
-                if (i > Length)
-                {
-                    Console.WriteLine($"Song {Title} finished");
-                    Playing = false;
-                    i = 0;
-                }
-            }
+            Console.WriteLine(Title);
         }
 
         public void Stop()
