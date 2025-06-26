@@ -115,31 +115,31 @@ namespace Spotivy.Classes
         {
             Playing = true;
             int i = 0;
-            Console.WriteLine($"playing {song.Play}");
+            Console.WriteLine($"playing {song.Title}");
 
             while (Playing && !stop)
             {
-                Console.WriteLine($"currently playing: {song.Play}");
+                Console.WriteLine($"currently playing: {song.Title}");
                 await Task.Delay(1000);//wait for 1 second without stopping the app
                 i++;
-                if (i > song.length)
+                if (i > song.Length)
                 {
                     if (!Repeat)
                     {
-                        Console.WriteLine($"Song {song.Play} finished");
+                        Console.WriteLine($"Song {song.Title} finished");
                         Playing = false;
                         i = 0;
                     }
                     else
                     {
-                        Console.WriteLine($"Song {song.Play} repeat");
+                        Console.WriteLine($"Song {song.Title} repeat");
                         i = 0;
                     }
                 }
             }
             if(stop)
             {
-                Console.WriteLine($"Song {song.Play} stopped");
+                Console.WriteLine($"Song {song.Title} stopped");
                 Playing = false;
                 stop = false;
                 i = 0;

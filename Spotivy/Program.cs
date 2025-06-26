@@ -4,7 +4,7 @@ namespace Spotivy
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             Console.WriteLine("Hello, World!");
 
@@ -48,6 +48,8 @@ namespace Spotivy
             client.ShowFriends();
 
             client.AddFriend(1);
+
+            await client.Play(song1);
         }
     }
 }
