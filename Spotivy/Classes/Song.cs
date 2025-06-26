@@ -31,8 +31,6 @@ namespace Spotivy.Classes
             SongGenre = songGenre;
         }
 
-        //int iPlayable.Length => throw new NotImplementedException();
-
         public void Next()
         {
             throw new NotImplementedException();
