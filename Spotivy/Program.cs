@@ -41,7 +41,13 @@ namespace Spotivy
 
             Client client = new(allUsers, allAlbums, allSongs);
 
+            client.ShowAllUsers();
+
+            client.SetActiveUser(superUser);
+
             client.ShowFriends();
+
+            client.AddFriend(1);
         }
     }
 }

@@ -26,7 +26,7 @@ namespace Spotivy.Classes
         {
             AllUsers = allUsers;
             AllAlbums = allAlbums;
-            AllUsers = allUsers;
+            AllSongs = allSongs;
         }
 
         /**
@@ -34,7 +34,10 @@ namespace Spotivy.Classes
          */
         public void SetActiveUser(Person person)
         {
-            throw new NotImplementedException();
+            if (person is SuperUser)
+            {
+                ActiveUser = (SuperUser)person;
+            }
         }
 
         /**
@@ -74,7 +77,10 @@ namespace Spotivy.Classes
          */
         public void ShowAllUsers()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < AllUsers.Count; i++)
+            {
+                Console.WriteLine($"{i}: {AllUsers[i].Name}");
+            }
         }
 
         /**
@@ -174,9 +180,11 @@ namespace Spotivy.Classes
 
         public void ShowFriends()
         {
-            for (int i = 0; i < AllUsers.Count; i++)
+            List<Person> friends = ActiveUser.ShowFriends();
+
+            for (int i = 0; i < friends.Count; i++)
             {
-                Console.WriteLine($"{i}: {AllUsers[i].Name}");
+                Console.WriteLine($"{i}: {friends[i].Name}");
             }
         }
 
@@ -187,7 +195,14 @@ namespace Spotivy.Classes
 
         public void AddFriend(int index)
         {
-            throw new NotImplementedException();
+            if (index >= 0 && index < AllUsers.Count)
+            {
+                Person friend = AllUsers[index];
+
+                ActiveUser.AddFriend(friend);
+
+                Console.WriteLine($"{friend.Name} is your friend.");
+            }
         }
 
         public void RemoveFriend(int index)
