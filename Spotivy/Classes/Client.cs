@@ -14,6 +14,7 @@ namespace Spotivy.Classes
         public bool Playing { get; set; }
         public bool Shuffle { get; set; }
         public bool Repeat { get; set; }
+        public bool stop { get; set; }
         private SuperUser ActiveUser { get; set; }
         private List<Album> AllAlbums { get; set; }
         private List<Song> AllSongs { get; set; }
@@ -102,18 +103,17 @@ namespace Spotivy.Classes
         /**
          * This is to play something
          */
-        public void Play(Song song)
+        public async Task Play(Song song) // make play a Task so Play can be delayed witout delaying/stopping the app it self
         {
             Playing = true;
             int i = 0;
             Console.WriteLine($"playing {song.Play}");
 
-            while (Playing)
+            while (Playing && !stop)
             {
                 Console.WriteLine($"currently playing: {song.Play}");
-                Thread.Sleep(1000); //wait for 1 second
+                await Task.Delay(1000);//wait for 1 second without stopping the app
                 i++;
-
                 if (i > song.length)
                 {
                     if (!Repeat)
@@ -125,12 +125,18 @@ namespace Spotivy.Classes
                     else
                     {
                         Console.WriteLine($"Song {song.Play} repeat");
-                        Playing = true;
                         i = 0;
                     }
                 }
             }
-
+            if(stop)
+            {
+                Console.WriteLine($"Song {song.Play} stopped");
+                Playing = false;
+                stop = false;
+                i = 0;
+            }
+      
         }
 
         /**
@@ -144,7 +150,10 @@ namespace Spotivy.Classes
 
         public void Stop()
         {
-            throw new NotImplementedException();
+            if(Playing)
+            {
+                stop = true;
+            }
         }
 
         public void NextSong()
