@@ -1,0 +1,62 @@
+﻿using Spotivy.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Spotivy.Interfaces;
+
+namespace Spotivy.Classes
+{
+    class Song : iPlayable
+    {
+        public string Title;
+        public List<Artist> Artists = new List<Artist>();
+        public Genres SongGenre;
+        private int length;
+
+        public int Length
+        {
+            get { return length; }
+        }
+
+
+        /**
+         * this is to create a song 
+         */
+        public Song(string title, List<Artist> artists, Genres songGenre)
+        {
+            Title = title;
+            Artists = artists;
+            SongGenre = songGenre;
+        }
+
+        public void Next()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Pause()
+        {
+            Console.WriteLine(Title);
+        }
+
+        public void Play()
+        {
+            Console.WriteLine(Title);
+        }
+
+        public void Stop()
+        {
+            throw new NotImplementedException();
+        }
+
+        /**
+        * this is to change how strings are printed to improve clarity
+        */
+        public override string ToString()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
